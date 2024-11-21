@@ -14,8 +14,8 @@ def LoginPage(request):
         pass1=request.POST.get('pass')
         usr=authenticate(request,username=uname,password=pass1)
         if usr is not None:
-            login(request,usr)
-            return redirect('home')
+            login(request)
+            return redirect('home');
         elif not uname or not pass1:
             return HttpResponse("Please fill in all the fields.")
         else:
@@ -29,7 +29,7 @@ def LoginPage(request):
 def SignUpPage(request):
     if request.method=='POST':
         uname=request.POST.get('username')
-        email=request.POST.get('email')
+        email=request.POST.get('email2')
         pass1=request.POST.get('password1')
         pass2=request.POST.get('password2')
 
